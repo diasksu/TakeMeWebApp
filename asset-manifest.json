@@ -1,15 +1,20 @@
 {
   "files": {
-    "main.css": "/TakeMeWebApp/static/css/main.84c8fb4c.css",
-    "main.js": "/TakeMeWebApp/static/js/main.c382f3bd.js",
+    "main.css": "/TakeMeWebApp/static/css/main.e057e71e.css",
+    "main.js": "/TakeMeWebApp/static/js/main.fa6ac5eb.js",
+    "static/media/OpenSans-d1b1331b.ttf": "/TakeMeWebApp/static/media/OpenSans-d1b1331b.071a1becc7f00e33cc5b.ttf",
+    "static/media/Roboto-Medium-9d0d55a3.ttf": "/TakeMeWebApp/static/media/Roboto-Medium-9d0d55a3.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular-4e147ab6.ttf": "/TakeMeWebApp/static/media/Roboto-Regular-4e147ab6.fc2b5060f7accec5cf74.ttf",
+    "static/media/Roboto-Black-5ace0d08.ttf": "/TakeMeWebApp/static/media/Roboto-Black-5ace0d08.cf56c1b149d0a5e8d7c6.ttf",
+    "static/media/Roboto-Bold-ec685a46.ttf": "/TakeMeWebApp/static/media/Roboto-Bold-ec685a46.f80816a5455d171f948d.ttf",
     "static/media/logo.svg": "/TakeMeWebApp/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/telebook.svg": "/TakeMeWebApp/static/media/telebook.207dbe3ddd5f28df45825e818223f176.svg",
     "index.html": "/TakeMeWebApp/index.html",
-    "main.84c8fb4c.css.map": "/TakeMeWebApp/static/css/main.84c8fb4c.css.map",
-    "main.c382f3bd.js.map": "/TakeMeWebApp/static/js/main.c382f3bd.js.map"
+    "main.e057e71e.css.map": "/TakeMeWebApp/static/css/main.e057e71e.css.map",
+    "main.fa6ac5eb.js.map": "/TakeMeWebApp/static/js/main.fa6ac5eb.js.map"
   },
   "entrypoints": [
-    "static/css/main.84c8fb4c.css",
-    "static/js/main.c382f3bd.js"
+    "static/css/main.e057e71e.css",
+    "static/js/main.fa6ac5eb.js"
   ]
 }
