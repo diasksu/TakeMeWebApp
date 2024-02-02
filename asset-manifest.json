@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/TakeMeWebApp/static/css/main.84c8fb4c.css",
-    "main.js": "/TakeMeWebApp/static/js/main.8be1b4eb.js",
+    "main.js": "/TakeMeWebApp/static/js/main.c382f3bd.js",
     "static/media/Roboto-Regular-4e147ab6.ttf": "/TakeMeWebApp/static/media/Roboto-Regular-4e147ab6.fc2b5060f7accec5cf74.ttf",
     "static/media/logo.svg": "/TakeMeWebApp/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/TakeMeWebApp/index.html",
     "main.84c8fb4c.css.map": "/TakeMeWebApp/static/css/main.84c8fb4c.css.map",
-    "main.8be1b4eb.js.map": "/TakeMeWebApp/static/js/main.8be1b4eb.js.map"
+    "main.c382f3bd.js.map": "/TakeMeWebApp/static/js/main.c382f3bd.js.map"
   },
   "entrypoints": [
     "static/css/main.84c8fb4c.css",
-    "static/js/main.8be1b4eb.js"
+    "static/js/main.c382f3bd.js"
   ]
 }
