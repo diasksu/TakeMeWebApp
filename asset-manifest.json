@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/TakeMeWebApp/static/css/main.5cf9fb01.css",
-    "main.js": "/TakeMeWebApp/static/js/main.8daee5e1.js",
+    "main.js": "/TakeMeWebApp/static/js/main.a2f6de4a.js",
     "static/media/Roboto-Medium-9d0d55a3.ttf": "/TakeMeWebApp/static/media/Roboto-Medium-9d0d55a3.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular-4e147ab6.ttf": "/TakeMeWebApp/static/media/Roboto-Regular-4e147ab6.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Black-5ace0d08.ttf": "/TakeMeWebApp/static/media/Roboto-Black-5ace0d08.cf56c1b149d0a5e8d7c6.ttf",
@@ -10,10 +10,10 @@
     "static/media/telebook.svg": "/TakeMeWebApp/static/media/telebook.207dbe3ddd5f28df45825e818223f176.svg",
     "index.html": "/TakeMeWebApp/index.html",
     "main.5cf9fb01.css.map": "/TakeMeWebApp/static/css/main.5cf9fb01.css.map",
-    "main.8daee5e1.js.map": "/TakeMeWebApp/static/js/main.8daee5e1.js.map"
+    "main.a2f6de4a.js.map": "/TakeMeWebApp/static/js/main.a2f6de4a.js.map"
   },
   "entrypoints": [
     "static/css/main.5cf9fb01.css",
-    "static/js/main.8daee5e1.js"
+    "static/js/main.a2f6de4a.js"
   ]
 }
