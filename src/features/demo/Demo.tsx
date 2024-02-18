@@ -1,10 +1,16 @@
-import React from 'react';
-import logo from './assets/images/logo.svg';
-import './assets/css/Demo.css';
+import React, { useState } from "react";
+import logo from './logo.svg';
 
 function Demo() {
+  const [stylePath] = useState(
+      "/TakeMeWebApp/css/demo.css"
+  );
+
   return (
     <div className="App">
+      <div style={{ display: 'none' }}>
+          <link rel="stylesheet" type="text/css" href={stylePath} />
+      </div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
