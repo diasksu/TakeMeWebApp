@@ -1,7 +1,7 @@
 import { FC, ReactElement } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Theme } from '@mui/material';
-import { useWebAppTheme } from '@kloktunov/react-telegram-webapp';
+import { useTelegramWebApp, useWebAppTheme } from '@kloktunov/react-telegram-webapp';
 import { TelegramWebApps } from '@kloktunov/react-telegram-webapp/lib/telegram-webapps';
 
 type LayoutProps = {
@@ -84,6 +84,8 @@ function createTakeMeTheme(
   
 // https://www.npmjs.com/package/@kloktunov/react-telegram-webapp?activeTab=readme
 export const Layout: FC<LayoutProps> = ({ children }) => {
+    const webApp = useTelegramWebApp();
+	webApp?.MainButton?.show();
     const { colorScheme, themeParams } = useWebAppTheme();
     const theme = createTakeMeTheme(colorScheme, themeParams);
     return (

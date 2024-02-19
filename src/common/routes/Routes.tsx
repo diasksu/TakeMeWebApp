@@ -4,6 +4,7 @@ import TakeItem from '../../features/take-item/TakeItem';
 import SendItem from '../../features/send-item/SendItem';
 import Demo from '../../features/demo/Demo';
 import MuiDemo from '../../features/mui-demo/MuiDemo';
+import Home from '../../features/home/Home';
 
 export type RouteDefinition = {
     path?: string;
@@ -14,6 +15,7 @@ export type RouteDefinition = {
 export enum Routes {
     Home = '/TakeMeWebApp',
     Demo = '/TakeMeWebApp/demo',
+    MuiDemo = '/TakeMeWebApp/muidemo',
     TakeItem = '/TakeMeWebApp/take',
     SendItem = '/TakeMeWebApp/send',
     Telebook = '/TakeMeWebApp/telebook'
@@ -26,6 +28,10 @@ export const RoutesNameMap = new Map<string, string>([
 export const routes: RouteDefinition[] = [
     {
         path: Routes.Home,
+        element: <Home />
+    },
+    {
+        path: Routes.MuiDemo,
         element: <MuiDemo />
     },
     {
