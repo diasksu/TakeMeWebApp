@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/TakeMeWebApp/static/css/main.f1a7f9de.css",
-    "main.js": "/TakeMeWebApp/static/js/main.afc370f8.js",
+    "main.css": "/TakeMeWebApp/static/css/main.258f0453.css",
+    "main.js": "/TakeMeWebApp/static/js/main.9778ba6b.js",
     "static/media/Roboto-Medium-9d0d55a3.ttf": "/TakeMeWebApp/static/media/Roboto-Medium-9d0d55a3.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular-4e147ab6.ttf": "/TakeMeWebApp/static/media/Roboto-Regular-4e147ab6.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Black-5ace0d08.ttf": "/TakeMeWebApp/static/media/Roboto-Black-5ace0d08.cf56c1b149d0a5e8d7c6.ttf",
     "static/media/Roboto-Bold-ec685a46.ttf": "/TakeMeWebApp/static/media/Roboto-Bold-ec685a46.f80816a5455d171f948d.ttf",
-    "static/media/airplane-postal.svg": "/TakeMeWebApp/static/media/airplane-postal.638a08a322527f9762a400b195a33833.svg",
+    "static/media/airplane-postal.svg": "/TakeMeWebApp/static/media/airplane-postal.faabd93f46730c85b1beb54df0e734c3.svg",
     "index.html": "/TakeMeWebApp/index.html",
-    "main.f1a7f9de.css.map": "/TakeMeWebApp/static/css/main.f1a7f9de.css.map",
-    "main.afc370f8.js.map": "/TakeMeWebApp/static/js/main.afc370f8.js.map"
+    "main.258f0453.css.map": "/TakeMeWebApp/static/css/main.258f0453.css.map",
+    "main.9778ba6b.js.map": "/TakeMeWebApp/static/js/main.9778ba6b.js.map"
   },
   "entrypoints": [
-    "static/css/main.f1a7f9de.css",
-    "static/js/main.afc370f8.js"
+    "static/css/main.258f0453.css",
+    "static/js/main.9778ba6b.js"
   ]
 }
