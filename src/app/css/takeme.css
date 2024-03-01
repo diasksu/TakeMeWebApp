@@ -37,3 +37,7 @@
     --tg-skeleton-color: var(--color-bg-tertiary);
 	--tg-section-bg-color: var(--tg-theme-section-bg-color, #17212b);
 }
+
+.take-logo g {
+	fill: var(--tg-color-bg-button);
+}

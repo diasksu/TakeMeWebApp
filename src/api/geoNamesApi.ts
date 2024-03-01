@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { locales } from '../common/localization/locales';
 
 const userName = 'dias';
 
@@ -17,7 +18,16 @@ type GetGeoNamesResponse = {
 };
 
 export const getGeoNames = async (cityName: string) : Promise<GeoName[]> => {
-    const geonamesUrl = `https://secure.geonames.org/search?name=${encodeURIComponent(cityName)}&username=${userName}&featureClass=P&maxRows=10&type=json`;
+    const queryParamsObject = {
+        name: cityName,
+        username: userName,
+        featureClass: 'P',
+        maxRows: '5',
+        type: 'json',
+        lang: locales.geoNamesLanguageCode
+    };
+    const queryParams = new URLSearchParams(queryParamsObject).toString();
+    const geonamesUrl = `https://secure.geonames.org/search?${queryParams}`;
     const { data, status } = await axios.get<GetGeoNamesResponse>(
         geonamesUrl,
         {

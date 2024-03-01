@@ -11,12 +11,13 @@ import {
 import { useState } from 'react';
 import { GeoName, getGeoNames } from '../../api/geoNamesApi';
 
-export interface CityDrawerProps {
+export interface TakeMeCityDrawerProps {
     isOpen: boolean;
-    handleClose: (city: GeoName) => void;
+    handleClose: (city?: GeoName) => void;
+    placeholder: string;
 }
 
-export function CityDrawer(props: Readonly<CityDrawerProps>) {
+export function TakeMeCityDrawer(props: Readonly<TakeMeCityDrawerProps>) {
     const theme = useTheme();
     let [cityInput, setCityInput] = useState<string>('');
     let [timeoutId, setTimeoutId] = useState<NodeJS.Timeout>();
@@ -46,12 +47,14 @@ export function CityDrawer(props: Readonly<CityDrawerProps>) {
     return <Drawer
         sx={{
             '& .MuiPaper-root': {
-                background: theme.palette.background.default
+                background: theme.palette.background.default,
+                height: `calc(100%)`,
+                overflow: 'visible',
             }
         }}
         anchor='bottom'
         open={props.isOpen}
-        onClose={props.handleClose}>
+        onClose={() => props.handleClose()}>
         <Stack
             spacing={1}
             sx={{
@@ -60,9 +63,12 @@ export function CityDrawer(props: Readonly<CityDrawerProps>) {
             <TextField
                 onChange={handleTextChange}
                 value={cityInput}
-                label='Origin city'
+                label={props.placeholder}
                 sx={{
-                    padding: '0px'
+                    padding: '0px',
+                    '.MuiOutlinedInput-notchedOutline': {
+                        borderColor: theme.palette.text.secondary,
+                    }
                 }}/>
             <List
                 sx={{ 

@@ -1,9 +1,6 @@
-import { NotFound } from '../components/NotFound/NotFound';
-import TakeMeType from '../../features/take-me-type/TakeMeType';
-import TakeItem from '../../features/take-item/TakeItem';
-import SendItem from '../../features/send-item/SendItem';
-import Demo from '../../features/demo/Demo';
-import MuiDemo from '../../features/mui-demo/MuiDemo';
+import { NotFound } from '../components/NotFound';
+import DeliverItem from '../../features/deliver/DeliverItem';
+import SendItem from '../../features/send/SendItem';
 import Home from '../../features/home/Home';
 
 export type RouteDefinition = {
@@ -15,8 +12,7 @@ export type RouteDefinition = {
 export enum Routes {
     Home = '/TakeMeWebApp',
     Demo = '/TakeMeWebApp/demo',
-    MuiDemo = '/TakeMeWebApp/muidemo',
-    TakeItem = '/TakeMeWebApp/take',
+    DeliverItem = '/TakeMeWebApp/deliver',
     SendItem = '/TakeMeWebApp/send',
     Telebook = '/TakeMeWebApp/telebook'
 }
@@ -31,24 +27,12 @@ export const routes: RouteDefinition[] = [
         element: <Home />
     },
     {
-        path: Routes.MuiDemo,
-        element: <MuiDemo />
-    },
-    {
-        path: Routes.TakeItem,
-        element: <TakeItem />
+        path: Routes.DeliverItem,
+        element: <DeliverItem />
     },
     {
         path: Routes.SendItem,
         element: <SendItem />
-    },
-    {
-        path: Routes.Demo,
-        element: <Demo />
-    },
-    {
-        path: Routes.Telebook,
-        element: <TakeMeType />
     },
     {
         path: '*',

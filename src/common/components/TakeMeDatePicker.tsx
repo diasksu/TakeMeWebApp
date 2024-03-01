@@ -6,10 +6,10 @@ export interface TakeMeDatePickerProps {
 
 export function TakeMeDatePicker(props: TakeMeDatePickerProps) {
     return <MobileDatePicker
-        format='MMM D YYYY'
+        format='D MMM YYYY'
         defaultValue={dayjs()}
         sx={{
-            maxWidth: '140px',
+            maxWidth: '150px',
             padding: '0px',
             borderWidth: '0px',
             "& .MuiOutlinedInput-root": { 

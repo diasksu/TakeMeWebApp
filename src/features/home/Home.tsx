@@ -1,67 +1,55 @@
 import { 
     Stack, 
-    Box,
-    Container, 
-    Paper, 
-    Typography,
-    Switch
+    Typography
 } from '@mui/material';
-import { ReactComponent as AirIcon } from '../../app/images/airplane-postal.svg';
 import '../../app/css/takeme.css';
+import { MuiSwitchLarge } from '../../common/components/SwitchLarge';
+import { ChangeEvent, useState } from 'react';
+import { UseType } from '../../models/Enums';
+import { useNavigate } from 'react-router-dom';
+import CustomWebAppMainButton from '../../common/components/WebApp/CustomWebAppMainButton';
+import { TitleSegment } from '../../common/components/Segments/TitleSegment';
+import { locales } from '../../common/localization/locales';
 
-function Home() {
+export default function Home() {
+    const [useType, setUseType] = useState(UseType.Send);
+    const navigate = useNavigate();
+
+    const onClick = () => {
+        navigate(useType.toLowerCase());
+    }
+
+    const onUseTypeChange = (event: ChangeEvent<HTMLInputElement>, checked: boolean) => {
+        setUseType(checked ? UseType.Deliver : UseType.Send);
+        console.log(checked ? UseType.Deliver : UseType.Send);
+    }
 
     return (
-        <Container sx={{
-            height: '100%',
-            padding: '7px',
-            fontStyle: 'normal', }} maxWidth='md'>
-            <Box sx={{ height: '100%' }}>
-                <Stack 
-                    spacing={1} 
-                    sx={{ 
-                        height: '100%' 
-                    }}
-                    direction="column"
-                    alignItems="stretch">
-                    <Paper sx={{    
-                        verticalAlign: 'center',
-                        textAlign: 'center',
-                        border: 'none',
-                        boxShadow: 'none',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        backgroundImage: 'none',
-                        backgroundColor: 'transparent',                   
-                        transition: 'flex-grow 2s ease',
-                        flexGrow: 1 }}>
-                        <AirIcon style={{ margin: '35px' }} />
-                        <Typography variant='h1'>Take Me</Typography>
-                        <br />
-                        <Typography style={{ 
-                            width: '80%',
-                            fontWeight: 100
-                        }}>Отправляйте и доставляйте посылки по всему миру</Typography>
-                    </Paper>
-                    <Stack
-                        sx={{
-                            width: '100%',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            verticalAlign: 'center'
-                        }}
-                        direction="row"
-                        spacing={0.5}>
-                        <Typography>Отправить</Typography>
-                        <Switch />
-                        <Typography>Доставить</Typography>
-                    </Stack>
-                </Stack>
-            </Box>
-        </Container>
+        <Stack 
+            spacing={1} 
+            sx={{ 
+                height: '100%',
+                justifyContent: 'center'
+            }}
+            direction="column"
+            alignItems="stretch">
+            <TitleSegment />
+            <Stack
+                sx={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
+                direction="row"
+                spacing={0.5}>
+                <Typography>{locales.sendButtonCaption}</Typography>
+                    <MuiSwitchLarge
+                        value={useType}
+                        onChange={onUseTypeChange} />
+                <Typography>{locales.deliverButtonCaption}</Typography>
+            </Stack>
+            <CustomWebAppMainButton
+                text={locales.mainButtonCaptionContinue}
+                onClick={onClick}/>
+        </Stack>
     );
 }
-
-export default Home;
