@@ -2,11 +2,12 @@ import { AppRoutes } from '../common/routes/AppRoutes';
 import { Layout } from './Layout';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CssBaseline, Theme } from '@mui/material';
-import { useWebAppTheme, useWebAppUser } from '@kloktunov/react-telegram-webapp';
+import { useWebAppTheme } from '@kloktunov/react-telegram-webapp';
 import { TelegramWebApps } from '@kloktunov/react-telegram-webapp/lib/telegram-webapps';
 import { locales } from '../common/localization/locales';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { useSearchParams } from 'react-router-dom'
 
 const lightThemeParams = {
     accent_text_color: "#168acd",
@@ -84,8 +85,8 @@ function createTakeMeTheme(
 
 export default function App() {
   const { colorScheme, themeParams } = useWebAppTheme();
-  const user = useWebAppUser();
-  const languageCode = user?.language_code ?? 'en';
+  const [ searchParams ] = useSearchParams()
+  const languageCode = searchParams.get('language') ?? 'en';
   locales.setLanguage(languageCode);
   // theme uses the language code from LocalizedString, order is important
   const theme = createTakeMeTheme(colorScheme, themeParams);

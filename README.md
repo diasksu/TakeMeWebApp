@@ -44,3 +44,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## To Do
+- distinct cities list when searching
+- block send/deliver button until all data collected and no validation errors
+- block send/deliver button on city searching
+- validate dates - end date is greater or equal to start date, start date is greater or equal than current date
+- send data on send/deliver button click - or send to confirm page and send
+- confirmation message in bot
+- gray out disabled main button
+- conditional main button on web-site directly accessed
+- svg with baggage instead of envelope
+- verify unsafe init data

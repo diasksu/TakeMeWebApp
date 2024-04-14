@@ -3,7 +3,6 @@ import {
     Stack, 
     Typography
 } from '@mui/material';
-import { useState } from 'react';
 import { GeoName } from '../../../api/geoNamesApi';
 import { TakeMeCityDrawer } from '../TakeMeCityDrawer';
 import '../../../app/css/takeme.css';
@@ -11,18 +10,20 @@ import { locales } from '../../localization/locales';
 
 type ChooseCitySegmentProps = {
     caption: string;
+    open: boolean;
+    setOpen: (open: boolean) => void;
+    city?: GeoName;
+    setCity: (city: GeoName) => void;
 };
 
 export default function ChooseCitySegment(props: Readonly<ChooseCitySegmentProps>) {
-    let [city, setCity] = useState<GeoName>();
-    const [cityDialogOpen, setCityDialogOpen] = useState(false);
     const handleCityClickOpen = () => {
-        setCityDialogOpen(true);
+        props.setOpen(true);
     };
     const handleCityDrawerClose = (city?: GeoName) => {
-        setCityDialogOpen(false);
+        props.setOpen(false);
         if(city) {
-            setCity(city);
+            props.setCity(city);
         }
     };
 
@@ -39,14 +40,14 @@ export default function ChooseCitySegment(props: Readonly<ChooseCitySegmentProps
                 borderRadius: '10px'
             }}>
             <Typography>
-                {city 
-                    ? `${city.name} (${city.countryCode})` 
+                {props.city 
+                    ? `${props.city.name} (${props.city.countryCode})` 
                     : `${locales.chooseCityButtonCaption} >`}
             </Typography>
         </Button>      
         <TakeMeCityDrawer
             placeholder={props.caption}
-            isOpen={cityDialogOpen}
+            isOpen={props.open}
             handleClose={handleCityDrawerClose}
         />
     </Stack>

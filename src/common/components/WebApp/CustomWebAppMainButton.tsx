@@ -1,4 +1,4 @@
-import { useTelegramWebApp } from '@kloktunov/react-telegram-webapp';
+import { useTelegramWebApp, useWebAppInitDataUnsafe } from '@kloktunov/react-telegram-webapp';
 import { FC, useEffect } from 'react';
 
 // Define the props for the MainButton component
@@ -29,13 +29,17 @@ const CustomWebAppMainButton: FC<MainButtonProps> = ({
 	// Get the instance of MainButton from Telegram Web App
 	const webApp = useTelegramWebApp();
 	const webAppMainButton = webApp?.MainButton;
+	const initData = useWebAppInitDataUnsafe();
 
 	// Set the color of the button
 	useEffect(() => {
+		const buttonColor = disable
+			? color ?? webApp?.themeParams.hint_color
+			: color ?? webApp?.themeParams.button_color;
 		webAppMainButton?.setParams({
-			color: color ?? webApp?.themeParams.button_color,
+			color: buttonColor
 		});
-	}, [color, webApp?.themeParams.button_color, webAppMainButton]);
+	}, [color, disable, webApp?.themeParams.button_color, webApp?.themeParams.hint_color, webAppMainButton]);
 
 	// Set the text color of the button
 	useEffect(() => {
@@ -87,8 +91,12 @@ const CustomWebAppMainButton: FC<MainButtonProps> = ({
 	}, [webAppMainButton]);
 
     // If MainButton is not available, the component will not be rendered
-	if (!webAppMainButton || !webApp){ return null; }
-    return <></>;	
+	if (!webAppMainButton || !webApp)
+	{ 
+		return null;
+	}
+	
+    return <></>	
 };
 
 export default CustomWebAppMainButton;

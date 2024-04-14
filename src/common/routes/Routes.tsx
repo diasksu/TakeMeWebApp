@@ -10,11 +10,9 @@ export type RouteDefinition = {
 };
 
 export enum Routes {
-    Home = '/TakeMeWebApp',
-    Demo = '/TakeMeWebApp/demo',
-    DeliverItem = '/TakeMeWebApp/deliver',
-    SendItem = '/TakeMeWebApp/send',
-    Telebook = '/TakeMeWebApp/telebook'
+    Home = '/',
+    DeliverItem = '/deliver',
+    SendItem = '/send'
 }
   
 export const RoutesNameMap = new Map<string, string>([

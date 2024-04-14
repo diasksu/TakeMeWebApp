@@ -14,7 +14,7 @@ export const AppRoutes: FC = () => {
         ));
     }
 
-    return (
+    return (        
         <Routes>
             {renderRoutes(routes)}
         </Routes>

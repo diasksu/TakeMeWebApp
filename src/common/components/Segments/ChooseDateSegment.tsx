@@ -4,9 +4,13 @@ import {
 } from '@mui/material';
 import { TakeMeDatePicker } from '../TakeMeDatePicker';
 import '../../../app/css/takeme.css';
+import dayjs from 'dayjs';
 
 type ChooseDateSegmentProps = {
     caption: string;
+    value?: dayjs.Dayjs;
+    setValue: (value?: dayjs.Dayjs) => void;
+    minDate?: dayjs.Dayjs;
 };
 
 export default function ChooseDateSegment(props: Readonly<ChooseDateSegmentProps>) {
@@ -15,6 +19,9 @@ export default function ChooseDateSegment(props: Readonly<ChooseDateSegmentProps
         justifyContent="space-between"
         alignItems="center">
         <Typography>{props.caption}</Typography>
-        <TakeMeDatePicker />
+        <TakeMeDatePicker 
+            value={props.value}
+            setValue={props.setValue}
+            minDate={props.minDate} />
     </Stack>
 }

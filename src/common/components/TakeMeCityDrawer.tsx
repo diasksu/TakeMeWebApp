@@ -6,10 +6,13 @@ import {
     List,
     ListItem,
     ListItemButton,
-    ListItemText
+    ListItemText,
+    Typography,
+    CircularProgress
 } from '@mui/material';
 import { useState } from 'react';
 import { GeoName, getGeoNames } from '../../api/geoNamesApi';
+import { locales } from '../localization/locales';
 
 export interface TakeMeCityDrawerProps {
     isOpen: boolean;
@@ -23,6 +26,7 @@ export function TakeMeCityDrawer(props: Readonly<TakeMeCityDrawerProps>) {
     let [timeoutId, setTimeoutId] = useState<NodeJS.Timeout>();
     let [geonames, setGeonames] = useState<GeoName[]>([]);
     let [processing, setProcessing] = useState<boolean>(false);
+    let [notFound, setNotFound] = useState<boolean>(false);
 
     const handleTextChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
         const cityRawInput = event.target.value;
@@ -30,9 +34,20 @@ export function TakeMeCityDrawer(props: Readonly<TakeMeCityDrawerProps>) {
         if(timeoutId) {
             clearTimeout(timeoutId);
         }
+        if(cityRawInput.length < 2) {
+            setGeonames([]);
+            return;
+        }
+        const resetNotFound = () => {
+            setNotFound(false);
+        }
         const processCityInput = async () => {
             setProcessing(true);
             const geonames = await getGeoNames(cityRawInput);
+            if(geonames?.length === 0) {
+                setNotFound(true);
+                setTimeout(resetNotFound, 1000);
+            }
             setProcessing(false);
             setGeonames(geonames);
         }
@@ -70,12 +85,12 @@ export function TakeMeCityDrawer(props: Readonly<TakeMeCityDrawerProps>) {
                         borderColor: theme.palette.text.secondary,
                     }
                 }}/>
-            <List
+            {(geonames?.length > 0) && <List
                 sx={{ 
                     width: '100%',
                     opacity: processing ? 0.5 : 1
                 }}>
-                {geonames.map((geoname: GeoName) => (
+                {geonames?.map((geoname: GeoName) => (
                     <ListItem 
                         key={geoname.geonameId}
                         disablePadding
@@ -88,8 +103,20 @@ export function TakeMeCityDrawer(props: Readonly<TakeMeCityDrawerProps>) {
                             <ListItemText primary={`${geoname.name} (${geoname.countryCode})`} />
                         </ListItemButton>
                     </ListItem>
-                ))}
-            </List>
+                ))}                
+            </List>}
+            {processing && <div style={{textAlign: 'center', marginTop: '20px'}}>
+                <CircularProgress />
+            </div>}
+            {(geonames?.length === 0 && !processing) && <Typography style={{
+                    margin: '10px',
+                    fontWeight: 100,
+                    textAlign: 'center',
+                    color: theme.palette.text.secondary
+                }}>
+                    {!notFound && locales.inputCityWelcomeText}
+                    {notFound && locales.nothingFound}
+            </Typography>}
         </Stack>
     </Drawer>;
 }

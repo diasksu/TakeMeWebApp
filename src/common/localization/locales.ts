@@ -5,6 +5,9 @@ import 'dayjs/locale/en';
 
 export const locales = new LocalizedStrings({
     en: {
+        datePickerLocaleText: enUS,
+        datePickerLanguage: 'en',
+        geoNamesLanguageCode: 'en',
         deliverButtonCaption: 'Deliver',
         sendButtonCaption: 'Send',
         mainButtonCaptionContinue: 'Continue',
@@ -19,11 +22,13 @@ export const locales = new LocalizedStrings({
         departureDate: 'Departure date',
         deliverPackageHelperText: 'Enter your departure date, the origin city, and the destination city',
         chooseCityButtonCaption: 'Choose city',
-        datePickerLocaleText: enUS,
-        datePickerLanguage: 'en',
-        geoNamesLanguageCode: 'en'
+        inputCityWelcomeText: 'Enter city name and choose from the suggested options',
+        nothingFound: 'Nothing found'
     },
     ru: {
+        datePickerLocaleText: ruRU,
+        datePickerLanguage: 'ru',
+        geoNamesLanguageCode: 'ru',
         deliverButtonCaption: 'Доставить',
         sendButtonCaption: 'Отправить',
         mainButtonCaptionContinue: 'Продолжить',
@@ -38,8 +43,7 @@ export const locales = new LocalizedStrings({
         departureDate: 'Дата вылета',
         deliverPackageHelperText: 'Введите дату вашего вылета, город отправления и город назначения',
         chooseCityButtonCaption: 'Выбрать город',
-        datePickerLocaleText: ruRU,
-        datePickerLanguage: 'ru',
-        geoNamesLanguageCode: 'ru'
+        inputCityWelcomeText: 'Введите наименование города и выберите из списка подходящий вариант',
+        nothingFound: 'Ничего не найдено'
     }
 });

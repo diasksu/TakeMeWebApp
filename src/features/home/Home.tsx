@@ -1,19 +1,21 @@
 import { 
-    Stack, 
-    Typography
+    Stack,
+    Typography,
+    Button,
+    useTheme
 } from '@mui/material';
 import '../../app/css/takeme.css';
 import { MuiSwitchLarge } from '../../common/components/SwitchLarge';
 import { ChangeEvent, useState } from 'react';
 import { UseType } from '../../models/Enums';
 import { useNavigate } from 'react-router-dom';
-import CustomWebAppMainButton from '../../common/components/WebApp/CustomWebAppMainButton';
 import { TitleSegment } from '../../common/components/Segments/TitleSegment';
 import { locales } from '../../common/localization/locales';
 
 export default function Home() {
     const [useType, setUseType] = useState(UseType.Send);
     const navigate = useNavigate();
+    const theme = useTheme();
 
     const onClick = () => {
         navigate(useType.toLowerCase());
@@ -21,7 +23,6 @@ export default function Home() {
 
     const onUseTypeChange = (event: ChangeEvent<HTMLInputElement>, checked: boolean) => {
         setUseType(checked ? UseType.Deliver : UseType.Send);
-        console.log(checked ? UseType.Deliver : UseType.Send);
     }
 
     return (
@@ -45,11 +46,14 @@ export default function Home() {
                     <MuiSwitchLarge
                         value={useType}
                         onChange={onUseTypeChange} />
-                <Typography>{locales.deliverButtonCaption}</Typography>
-            </Stack>
-            <CustomWebAppMainButton
-                text={locales.mainButtonCaptionContinue}
-                onClick={onClick}/>
+                <Typography>{locales.deliverButtonCaption}</Typography>              
+            </Stack>          
+            <Button
+                sx={{
+                    color: theme.palette.text.primary,
+                    background: theme.palette.primary.main
+                }}
+                onClick={onClick}>{locales.mainButtonCaptionContinue}</Button>
         </Stack>
     );
 }

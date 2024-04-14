@@ -24,7 +24,8 @@ export const getGeoNames = async (cityName: string) : Promise<GeoName[]> => {
         featureClass: 'P',
         maxRows: '5',
         type: 'json',
-        lang: locales.geoNamesLanguageCode
+        lang: locales.geoNamesLanguageCode,
+        cities: 'cities15000'
     };
     const queryParams = new URLSearchParams(queryParamsObject).toString();
     const geonamesUrl = `https://secure.geonames.org/search?${queryParams}`;
