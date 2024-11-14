@@ -23,7 +23,10 @@ export const locales = new LocalizedStrings({
         deliverPackageHelperText: 'Enter your departure date, the origin city, and the destination city',
         chooseCityButtonCaption: 'Choose city',
         inputCityWelcomeText: 'Enter city name and choose from the suggested options',
-        nothingFound: 'Nothing found'
+        nothingFound: 'Nothing found',
+        commentLabel: 'Comment',
+        commentSendPlaceholder: 'Enter your comment, courier will see it',
+        commentDeliverPlaceholder: 'Enter your comment, sender will see it',
     },
     ru: {
         datePickerLocaleText: ruRU,
@@ -44,6 +47,9 @@ export const locales = new LocalizedStrings({
         deliverPackageHelperText: 'Введите дату вашего вылета, город отправления и город назначения',
         chooseCityButtonCaption: 'Выбрать город',
         inputCityWelcomeText: 'Введите наименование города и выберите из списка подходящий вариант',
-        nothingFound: 'Ничего не найдено'
+        nothingFound: 'Ничего не найдено',
+        commentLabel: 'Комментарий',
+        commentSendPlaceholder: 'Введите ваш комментарий. Его увидит курьер',
+        commentDeliverPlaceholder: 'Введите ваш комментарий. Отправитель увидит его',
     }
 });

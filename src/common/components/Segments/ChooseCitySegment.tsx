@@ -20,6 +20,7 @@ export default function ChooseCitySegment(props: Readonly<ChooseCitySegmentProps
     const handleCityClickOpen = () => {
         props.setOpen(true);
     };
+    
     const handleCityDrawerClose = (city?: GeoName) => {
         props.setOpen(false);
         if(city) {

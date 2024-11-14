@@ -9,6 +9,7 @@ import { WebAppBackButton, useTelegramWebApp } from '@kloktunov/react-telegram-w
 import { useNavigate } from 'react-router-dom';
 import ChooseCitySegment from '../../common/components/Segments/ChooseCitySegment';
 import ChooseDateSegment from '../../common/components/Segments/ChooseDateSegment';
+import AddCommentSegment from '../../common/components/Segments/AddCommentSegment';
 import { ControlsPaper } from '../../common/components/ControlsPaper';
 import { locales } from '../../common/localization/locales';
 import { useState, useEffect } from 'react';
@@ -24,6 +25,8 @@ export default function SendItem() {
 
     const [startDate, setStartDate] = useState<dayjs.Dayjs | undefined>(dayjs());
     const [endDate, setEndDate] = useState<dayjs.Dayjs | undefined>(startDate?.add(1));
+
+    const [comment, setComment] = useState<string>();
 
     const handleStartDateChange = (value?: dayjs.Dayjs) => {
         setStartDate(value);
@@ -42,7 +45,7 @@ export default function SendItem() {
             setOriginDialogOpen(false);
             return;
         }
-        if(destinationDialogOpen){
+        if(destinationDialogOpen) {
             setDestinationDialogOpen(false);
             return;
         }
@@ -56,7 +59,8 @@ export default function SendItem() {
             origin,
             destination,
             startDate,
-            endDate
+            endDate,
+            comment
         };
         webApp?.sendData(JSON.stringify(userInputData));
     }
@@ -93,6 +97,11 @@ export default function SendItem() {
                     setOpen={setDestinationDialogOpen}
                     city={destination}
                     setCity={setDestination}  />
+                <AddCommentSegment
+                    caption={locales.commentLabel}
+                    placeholder={locales.commentSendPlaceholder}
+                    comment={comment}
+                    setComment={setComment}  />
             </ControlsPaper>
 
             <Typography 

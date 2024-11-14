@@ -9,6 +9,7 @@ import { WebAppBackButton, useTelegramWebApp } from '@kloktunov/react-telegram-w
 import { useNavigate } from 'react-router-dom';
 import ChooseDateSegment from '../../common/components/Segments/ChooseDateSegment';
 import ChooseCitySegment from '../../common/components/Segments/ChooseCitySegment';
+import AddCommentSegment from '../../common/components/Segments/AddCommentSegment';
 import { ControlsPaper } from '../../common/components/ControlsPaper';
 import { locales } from '../../common/localization/locales';
 import { useEffect, useState } from 'react';
@@ -25,6 +26,8 @@ export default function DeliverItem() {
 
     const [departureDate, setDepartureDate] = useState<dayjs.Dayjs | undefined>(dayjs());
 
+    const [comment, setComment] = useState<string>();
+
     const navigate = useNavigate();
     const theme = useTheme();
     const webApp = useTelegramWebApp();
@@ -33,7 +36,8 @@ export default function DeliverItem() {
             useType: UseType.Deliver,
             origin,
             destination,
-            departureDate
+            departureDate,
+            comment
         };
         webApp?.sendData(JSON.stringify(userInputData));
     }
@@ -77,6 +81,11 @@ export default function DeliverItem() {
                     setOpen={setDestinationDialogOpen}
                     city={destination}
                     setCity={setDestination}  />
+                <AddCommentSegment
+                    caption={locales.commentLabel}
+                    placeholder={locales.commentDeliverPlaceholder}
+                    comment={comment}
+                    setComment={setComment}  />
             </ControlsPaper>
             <Typography style={{
                     margin: '10px',
